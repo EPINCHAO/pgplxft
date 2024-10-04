@@ -9,7 +9,7 @@ import { ToastModule } from 'primeng/toast';
   imports: [RouterOutlet, ToastModule],
   providers:[MessageService],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
