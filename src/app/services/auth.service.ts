@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { RegisterPostData, User } from '../adapters/auth';
+import { LoginPostData, RegisterPostData, User } from '../adapters/auth';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -19,11 +19,12 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/register`, postData);
   }
 
-  getUserDetails(email: string, password: string): Observable<User[]> {
-    return this.http.get<User[]>(
-      `${this.baseUrl}/users?email=${email}&password=${password}`
-    );
+
+  loginUser(postData: LoginPostData) {
+    
+    return this.http.post(`${this.baseUrl}/login`, postData);
   }
+ 
  
 
 }

@@ -57,10 +57,8 @@ export class RegisterComponent {
           detail: 'Registro Exitoso.',
         });
         this.router.navigate(['login']);
-        console.log(response);
       },
       error: (err) => {
-        console.log(err);
         this.messageService.add({
           severity: 'error',
           summary: 'Error',

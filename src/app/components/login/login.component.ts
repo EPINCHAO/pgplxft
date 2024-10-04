@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { AuthService } from '../../services';
 import { MessageService } from 'primeng/api';
+import { LoginPostData } from '../../adapters/auth';
 
 
 @Component({
@@ -24,12 +25,37 @@ export class LoginComponent {
     password: '',
   };
 
-
-  //private loginService: LoginService
   constructor(){}
 
+  private authService= inject(AuthService)
+  private router = inject(Router);
+
+  private messageService= inject(MessageService);
   onLogin(){
-    console.log(this.login)
+    const { email, password } = this.login;
+    const loginData: LoginPostData = { email, password };
+  
+    this.authService.loginUser(loginData).subscribe({
+      next: (response) => {
+        if (response) {
+          sessionStorage.setItem('email', email);
+          this.router.navigate(['home']);
+        } else {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Invalid login credentials',
+          });
+        }
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Something went wrong',
+        });
+      },
+    });
 
   }
 }
