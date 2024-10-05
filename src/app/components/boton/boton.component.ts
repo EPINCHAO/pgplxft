@@ -11,13 +11,13 @@ declare var iniciarDatos: any;
 export class BotonComponent implements OnInit {
   data = {
     /* Requerido. Email de la cuenta PagoPlux del Establecimiento */
-    PayboxRemail: 'correocomercio@gmail.com',
+    PayboxRemail: 'negocioprueba1ppx@gmail.com',
 
     /* Requerido. Email del usuario que realiza el pago */
-    PayboxSendmail: 'correocliente@gmail.com',
+    PayboxSendmail: 'danielrepreuno@gmail.com',
 
     /* Requerido. Nombre del establecimiento en PagoPlux */
-    PayboxRename: 'Nombre Negocio',
+    PayboxRename: 'Negocio Test',
 
     /* Requerido. Nombre del usuario que realiza el pago */
     PayboxSendname: 'Nombre tarjetahabienten',
@@ -58,13 +58,13 @@ export class BotonComponent implements OnInit {
     /*
      * Requerido. Teléfono del tarjetahabiente
      */
-    PayBoxClientPhone: 'Telefono tarjetahabiente',
+    PayBoxClientPhone: '0998665577',
 
     /* Opcionales
 	  *  Solo aplica para comercios que tengan habilitado pagos 
            internacionales
         */
-    PayBoxClientIdentification: 'Cedula tarjetahabiente',
+    PayBoxClientIdentification: '0502395130',
 
     PayboxExtras: 'campo de extra tres',
 
@@ -142,8 +142,6 @@ PayboxIdElement: 'idElementoTest',
 
     onAuthorize: (response: any) => {
       if (response.status === 'succeeded') {
-        console.log(response)
-
         response.amount,
         response.deferred,
         response.interest,
