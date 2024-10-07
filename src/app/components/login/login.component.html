@@ -17,7 +17,7 @@
         @if(email.invalid && (email.dirty || email.touched)){
         <small class="block p-error">
           @if(email.hasError('required')) {
-          <span>Email is required</span>
+          <span>Email es requerido</span>
           } @else if(email.hasError('pattern')) {
           <span>Email is invalid</span>
           }
@@ -38,7 +38,7 @@
           required
         />
         @if(password.invalid && (password.dirty || password.touched)) {
-        <small class="block p-error"> Password is required </small>
+        <small class="block p-error"> Password es requerido </small>
         }
       </div>
       <p-button

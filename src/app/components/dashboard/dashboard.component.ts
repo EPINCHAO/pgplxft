@@ -57,15 +57,12 @@ export class DashboardComponent {
   async searchTransaction() {
     if (this.idTransaction) {
       try {
-        console.log(this.idTransaction)
         const data = await this.getTransactionById(this.idTransaction);
-        console.log(data)
         this.transactionDetails = data; 
         this.errorMessage = '';
         this.idTransaction = '';
         this.cdr.detectChanges();
       } catch (error) {
-        console.error('Error fetching transaction:', error); 
         this.errorMessage = 'No se pudo obtener la transacción. Verifica el ID.';
         this.transactionDetails = null;
         this.idTransaction = '';

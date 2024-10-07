@@ -2,7 +2,7 @@
     <p-card header="Register" [style]="{ width: '400px' }">
       <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
         <div class="field">
-          <label for="name">Nombre Completo</label>
+          <label for="name">Nombre Completo*</label>
           <input
             pInputText
             class="w-full"
@@ -14,7 +14,7 @@
           }
         </div>
         <div class="field">
-          <label for="email">Email</label>
+          <label for="email">Email*</label>
           <input pInputText class="w-full" id="email" formControlName="email" />
           @if(email.invalid && (email.dirty || email.touched)){
           <small class="block p-error">
@@ -27,7 +27,8 @@
           }
         </div>
         <div class="field">
-          <label for="password">Password</label>
+          <label for="password">Contraseña*</label>
+
           <p-password
             formControlName="password"
             [feedback]="false"
@@ -41,7 +42,7 @@
           }
         </div>
         <div class="field">
-          <label for="confirmPassword">Confirm Password</label>
+          <label for="confirmPassword">Confirmar Contraseña*</label>
           <p-password
             formControlName="confirmPassword"
             [feedback]="false"
