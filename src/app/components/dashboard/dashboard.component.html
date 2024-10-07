@@ -6,7 +6,7 @@
         <p-button label="Buscar" icon="pi pi-search" (click)="searchTransaction()"></p-button>
       </div>
 
-    <p-table [value]="[transactionDetails?.detail?.respuest]" [tableStyle]="{'min-width': '60rem'}" *ngIf="transactionDetails">
+    <p-table [value]="[transactionDetails.detail.respuest]" [tableStyle]="{'min-width': '60rem'}" *ngIf="transactionDetails">
       <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
           Detalles de la Transacción
