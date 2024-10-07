@@ -1,0 +1,61 @@
+
+  <div class="card mb-2">
+
+    <div class="flex align-items-center justify-content-center mb-3">
+        <input [(ngModel)]="idTransaction" placeholder="Ingrese ID de transacción" class="p-inputtext p-component p-mr-2" />
+        <p-button label="Buscar" icon="pi pi-search" (click)="searchTransaction()"></p-button>
+      </div>
+
+    <p-table [value]="[transactionDetails?.detail?.respuest]" [tableStyle]="{'min-width': '60rem'}" *ngIf="transactionDetails">
+      <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+          Detalles de la Transacción
+          <p-button icon="pi pi-refresh"></p-button>
+        </div>
+      </ng-template>
+  
+      <ng-template pTemplate="header">
+        <tr>
+          <th># Establecimiento</th>
+          <th>Nombres</th>
+          <th>CI</th>
+          <th># Transacción</th>
+          <th>Descripción</th>
+          <th>Estado</th>
+          <th>Base 0</th>
+          <th>Base 12</th>
+          <th>IVA</th>
+          <th>Tipo Pago</th>
+          <th>Monto Total</th>
+        </tr>
+      </ng-template>
+  
+      <ng-template pTemplate="body" let-detail>
+        <tr>
+          <td>{{ detail.id_establecimiento }}</td>
+          <td>{{ detail.cliente.nombres }}</td>
+          <td>{{ detail.cliente.numero_identificacion }}</td>
+          <td>{{ detail.id_transaccion}}</td>
+          <td>{{ detail.descripcion }}</td>
+          <td>{{ detail.catalogos.nombre_catalogo }}</td>
+          <td>{{ detail.valor_base0 }}</td>
+          <td>{{ detail.valor_base12 }}</td>
+          <td>{{ detail.valor_iva }}</td>
+          <td>{{ detail.tipoPago }}</td>
+          <td>{{ detail.monto }}</td>
+        </tr>
+      </ng-template>
+  
+      <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+          Total de una transacción mostrada.
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
+  
+
+
+  
+
+  
